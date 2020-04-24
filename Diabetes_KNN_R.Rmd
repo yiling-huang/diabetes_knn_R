@@ -1,0 +1,78 @@
+---
+title: "Diabetes"
+author: "YI-LING HUANG"
+date: "4/23/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(caret)
+library(class)
+library(gmodels)
+```
+
+
+```{r}
+a <- read.csv("diabetes_data.csv")
+a$Outcome <- as.factor(a$Outcome)
+```
+
+```{r}
+# detect missing values
+a[!complete.cases(a),]
+
+```
+
+```{r}
+set.seed(123)
+trControl <- trainControl(method  = "cv",
+                          number  = 5)
+
+fit <- train(Outcome ~ .,
+             method     = "knn",
+             preProcess = c("center", "scale"),
+             trControl  = trControl,
+             metric     = "Accuracy",
+             data       = a,
+             tuneLength = 10)
+```
+
+```{r}
+fit
+```
+
+```{r}
+plot(fit)
+```
+
+```{r}
+n <- nrow(a)
+n_train <- round(.6*n)
+set.seed(456)
+train_index <- sample(1:n, n_train)
+train <- a[train_index,]
+test <- a[-train_index,]
+
+```
+
+```{r}
+model<- knn(train = train, test= test, cl= train$Outcome, k = 17)
+```
+
+```{r}
+x <- data.frame(test$Outcome)
+merge <- data.frame(model, x)
+names(merge) <- c("Predicted Outcome", "Observed Outcome")
+
+```
+
+```{r}
+# performance of model
+CrossTable(x = test$Outcome, y = model, prop.chisq=FALSE)
+confusionMatrix(merge$`Predicted Outcome`, merge$`Observed Outcome`)
+```
+
