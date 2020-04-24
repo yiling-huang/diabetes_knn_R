@@ -7,6 +7,7 @@ What did I do in this file?
 
   Data Preprocessing
      1. Detect missing value
+     
      2. Normalize data
   
   Find optimal k
