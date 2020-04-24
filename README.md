@@ -6,9 +6,8 @@ Objectives: Apply K Nearest Neighbors method to predict wheter people have diabe
 What did I do in this file?
 
   Data Preprocessing
-     1. Detect missing value
-     
-     2. Normalize data
+     1.Detect missing value
+     2.Normalize data
   
   Find optimal k
 
