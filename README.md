@@ -4,10 +4,10 @@ Data source: https://www.kaggle.com/rahulsah06/machine-learning-for-diabetes-wit
 Objectives: Apply K Nearest Neighbors method to predict wheter people have diabetes
 
 What did I do?
-  Data Preprocessing
-    1. Detect missing value
-    2. Normalize data
-  Find optimal k
-  Separate data into train and test
-  Fit data into model
-  Measure performance of model
+  A. Data Preprocessing
+     1. Detect missing value
+     2. Normalize data
+  B. Find optimal k
+  C. Separate data into train and test
+  D. Fit data into model
+  E. Measure performance of model
