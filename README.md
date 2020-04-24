@@ -5,14 +5,14 @@ Objectives: Apply K Nearest Neighbors method to predict wheter people have diabe
 
 What did I do in this file?
 
-A. Data Preprocessing
+  Data Preprocessing
      1. Detect missing value
      2. Normalize data
+  
+  Find optimal k
 
-B. Find optimal k
+  Separate data into train and test
 
-C. Separate data into train and test
+  Fit data into model
 
-D. Fit data into model
-
-E. Measure performance of model
+  Measure performance of model
